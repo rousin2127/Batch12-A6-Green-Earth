@@ -41,38 +41,40 @@
                                     d="M4 6h16M4 12h8m-8 6h16" />
                             </svg>
                         </div>
-                        <ul tabindex="0"
-                            class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <ul id="" tabindex="0"
+                            class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2  ">
                             <li><a>Item 1</a></li>
                             <li>
                                 <a>Parent</a>
-                                <ul class="p-2">
+                                <!-- <ul class="p-2">
                                     <li><a>Submenu 1</a></li>
                                     <li><a>Submenu 2</a></li>
-                                </ul>
+                                </ul> -->
                             </li>
                             <li><a>Item 3</a></li>
                         </ul>
                     </div>
-                    <a class="btn btn-ghost text-xl">daisyUI</a>
+                    <i class="fa-solid fa-seedling text-white text-[20px]"></i>
+                    <h1 class="font-semibold text-[20px] text-white">Green Earth</h1>
                 </div>
                 <div class="navbar-center hidden lg:flex">
-                    <ul class="menu menu-horizontal px-1">
-                        <li><a>Item 1</a></li>
+                    <ul id="menu-style" class="flex gap-[20px] hover:cursor-pointer  px-1 text-white">
+                        <li><a class="hover:underline">About</a></li>
                         <li>
-                            <details>
+                            <a class="hover:underline">Gallery</a>
+                            <!-- <details>
                                 <summary>Parent</summary>
                                 <ul class="p-2">
                                     <li><a>Submenu 1</a></li>
                                     <li><a>Submenu 2</a></li>
                                 </ul>
-                            </details>
+                            </details> -->
                         </li>
-                        <li><a>Item 3</a></li>
+                        <li><a class="hover:underline">Plant a Tree</a></li>
                     </ul>
                 </div>
                 <div class="navbar-end">
-                    <a class="btn bg-[#FACC15] border-none ">Button</a>
+                    <a class="btn bg-[#FACC15] border-none py-[20px] px-[20px] rounded-[50px] shadow-none text-[#15803D]">Plant Tree</a>
                 </div>
             </div>
         </nav>
