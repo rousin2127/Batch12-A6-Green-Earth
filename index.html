@@ -87,8 +87,8 @@
             <div class="flex justify-between">
                 <div><img src="assets/hero-leaf1.png" alt=""></div>
                 <div class="flex flex-col items-center justify-center">
-                    <h1 class="text-[38px] font-bold w-[530px] text-center">Plant a Tree, Grow a Future</h1>
-                    <p class="text-center text-[12px] w-[460px]">Join our mission to plant 1 million trees and make the
+                    <h1 class="text-[28px] font-bold  text-center">Plant a Tree, Grow a Future</h1>
+                    <p class="text-center text-[11px]  text-[#404040]">Join our mission to plant 1 million trees and make the
                         Earth greener for future
                         generations.</p>
                     <div class="mt-[24px]">
@@ -106,19 +106,23 @@
 
     <!-- start main section  -->
     <main class="bg-[#F0FDF4]">
-        <div class="border-1 border-black w-11/12 mx-auto">
-            <h3 class="mt-[60px] text-[24px] font-bold text-center">Choose Yours Trees</h3>
-            <div class="flex gap-[15px] justify-between">
-            <div class=" w-[180px]">
-                <h4 class=" font-bold mb-[10px]">Categories</h4>
-                <button onclick="loadAllTreeContainer()" class="w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[14px] text-left px-[5px] py-[3px] rounded-[3px] ">all tree</button>
-                <div id="all-category">
-                    
-                </div>
 
-            </div>
-            <div id="tree-container" class="grid grid-cols-3 gap-4 ">
-                <!-- <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[250px] space-y-2">
+        <!-- start tree-container  -->
+        <section class="border-1 border-black w-11/12 mx-auto">
+            <h3 class="mt-[60px] mb-[30px] text-[24px] font-bold text-center">Choose Yours Trees</h3>
+            <div class="flex gap-[15px] justify-between">
+                <div class=" w-[180px] mx-auto">
+                    <h4 class=" font-bold mb-[10px]">Categories</h4>
+                    <button onclick="loadAllTreeContainer()"
+                        class="w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[14px] text-left px-[5px] py-[3px] rounded-[3px] active mb-[3px] allCategory-btn ">All
+                        Trees</button>
+                    <div id="all-category">
+
+                    </div>
+
+                </div>
+                <div id="tree-container" class="grid grid-cols-3 gap-4 ">
+                    <!-- <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[250px] space-y-2">
                     <img src="assets/about.png" alt="">
                     <h4 class="font-bold mt-[5px]">Mango Tree</h4>
                     <p class="text-[12px]">A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
@@ -128,7 +132,7 @@
                     </div>
                     <button class="w-full mt-[10px] bg-[#15803D] text-white text-[14px] h-[30px] rounded-2xl">Add to Cart</button>
                 </div> -->
-                <!-- <div id="card-tree">
+                    <!-- <div id="card-tree">
                     <img src="assets/about.png" alt="">
                     <h4>Mango Tree</h4>
                     <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
@@ -138,7 +142,7 @@
                     </div>
                     <button>Add to Cart</button>
                 </div> -->
-                <!-- <div id="card-tree">
+                    <!-- <div id="card-tree">
                     <img src="assets/about.png" alt="">
                     <h4>Mango Tree</h4>
                     <p>A fast-growing tropical tree that produces delicious, juicy mangoes during summer. Its dense green</p>
@@ -148,22 +152,87 @@
                     </div>
                     <button>Add to Cart</button>
                 </div> -->
+                </div>
+                <div class="bg-white w-[180px] p-[10px] rounded-sm mx-auto">
+                    <h4>Your Cart</h4>
+                </div>
             </div>
-            <div class="bg-white w-[180px] p-[10px] rounded-sm">
-                <h4>Your Cart</h4>
+        </section>
+
+        <!-- start campaign section  -->
+        <section class=" mb-[60px] w-8/13 mx-auto">
+            <h2 class="mt-[60px] mb-[30px] text-center font-bold text-[24px]">About The Campaign</h2>
+            <div class="flex  mx-auto justify-between border-1 border-black gap-3">
+
+                <div class="w-1/2">
+                    <img src="assets/about.png" alt="">
+                </div>
+                <div class=" w-1/2 flex flex-col flex-wrap justify-center">
+                    <p class="text-[11px] text-[#404040] ">
+                        Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since
+                        our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore
+                        forests, create habitats for wildlife, and combat global warming.
+                    </p>
+                    <ul class="list-disc ml-5 text-[11px] text-[#404040] mt-[10px]">
+                        <li>Restoration of natural habitats</li>
+                        <li>Improvement of air quality</li>
+                        <li>Support for local communities</li>
+                    </ul>
+                </div>
             </div>
+        </section>
+
+        <!-- start impact section  -->
+        <section class="bg-[#DCFCE7] py-[60px]">
+            <h2 class="mb-[30px] text-center font-bold text-[24px]">Our Impact </h2>
+            <div class="w-11/12 mx-auto  mt-[30px] flex justify-between">
+                <div class="bg-white w-[350px]  text-center h-[120px] flex flex-col justify-center rounded-md">
+                    <span class="font-semibold text-[20px] text-[#15803D]">500K+</span>
+                    <P class="text-[11px] text-[#404040]">Trees Planted</P>
+                </div>
+                <div class="bg-white w-[350px]  text-center h-[120px] flex flex-col justify-center rounded-md ">
+                    <span class="font-semibold text-[20px] text-[#15803D]">120+</span>
+                    <P class="text-[11px] text-[#404040]">Communities Involved</P>
+                </div>
+                <div class="bg-white w-[350px]  text-center h-[120px] flex flex-col justify-center  rounded-md">
+                    <span class="font-semibold text-[20px] text-[#15803D]">30+</span>
+                    <P class="text-[11px] text-[#404040]">Countries Reached</P>
+                </div>
             </div>
-        </div>
+
+        </section>
     </main>
 
     <footer>
+        <section class="bg-[#166534] ">
+            <div>
+                <div>
+                    <h2 class="text-center mb-[30px] font-bold text-[24px] text-white pt-[60px] ">Plant a Tree Today</h2>
+                </div>
+                <div class="  flex items-center justify-center pb-[30px] mx-auto  ">
+                    <form class="w-[400px] grid space-y-3 bg-[#15803D] shadow-inherit p-5 rounded-md mb-[60px]">
+                        <input class="rounded-sm h-7 bg-white border-none text-[12px] px-2" type="text" name="name" placeholder="Your name" id="">
+                        <input class="rounded-sm h-7 bg-white border-none text-[12px] px-2" type="email" name="email" placeholder="Your Email Address" id="">
+                        <select class="rounded-sm h-7 bg-white border-none text-[12px] px-2"" name="" id="">
+                            <option value="tea">Number of Trees</option>
+                            <option value="bread">Bread</option>
+                        </select>
+                        <input class="h-7 bg-[#FACC15] border-none  rounded-[50px] shadow-none text-[#15803D] "
+                            type="button" value="Donate Now">
+                    </form>
+                </div>
+            </div>
 
+        </section>
+        <section class="bg-[#14532D] p-5 ">
+            <p class="text-center text-white text-[14px]">© 2025 Green Earth. All Rights Reserved.</p>
+        </section>
     </footer>
 
-    green Earth is now cocking
+    <!-- green Earth is now cocking
     <i class="fa-solid fa-seedling"></i>
 
-    <i class="fa-solid fa-xmark"></i>
+    <i class="fa-solid fa-xmark"></i> -->
 
     <script src="js/script.js"></script>
 </body>

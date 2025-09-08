@@ -19,7 +19,7 @@ const displayCategory = (categories) => {
 
         const btnDiv = document.createElement('div')
         btnDiv.innerHTML = `
-       <button onclick=loadTreeContainer(${category.id}) class="w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[14px] text-left px-[5px] py-[3px] rounded-[3px] my-[5px] ">${category.category_name} </button>
+       <button id="category-btn-${category.id}" onclick=loadTreeContainer(${category.id}) class="w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[14px] text-left px-[5px] py-[3px] rounded-[3px] my-[3px] allCategory-btn ">${category.category_name} </button>
         `
         allCategory.append(btnDiv)
 
@@ -28,14 +28,23 @@ const displayCategory = (categories) => {
 }
 loadCategory()
 
-
+const removeActive=()=>{
+    const categoryBtn= document.querySelectorAll('.allCategory-btn')
+    categoryBtn.forEach(btn=> btn.classList.remove("active"))
+}
 // category 
 
 const loadTreeContainer=(id)=>{
     const url=`https://openapi.programming-hero.com/api/category/${id}`
     fetch(url)
     .then(res=> res.json())
-    .then(data=>displayTreeContainer(data.plants))
+    .then(data=>{
+        removeActive();
+        const clickBtn=document.getElementById(`category-btn-${id}`)
+        clickBtn.classList.add("active")
+        console.log(clickBtn)
+        displayTreeContainer(data.plants)
+    })
 }
 const displayTreeContainer=(plants)=>{
     
@@ -47,10 +56,10 @@ const displayTreeContainer=(plants)=>{
     plants.forEach(plant =>{
         const cardDiv = document.createElement('div')
         cardDiv.innerHTML =`
-        <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[250px] space-y-2 h-full">
+        <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[250px] mx-auto space-y-2 h-full">
                     <img class="h-[200px] w-full rounded-sm " src="${plant.image} "  alt="">
                     <h4 class="font-bold mt-[5px]">${plant.name} </h4>
-                    <p class="text-[12px]  ">${plant.description} </p>
+                    <p class="text-[11px] text-justify text-[#404040]  ">${plant.description} </p>
                     <div class="flex justify-between mt-[10px]">
                         <span class="text-[14px] bg-[#DCFCE7] px-[10px] py-[2px] rounded-xl">${plant.category} </span>
                         <span class="text-[14px] font-semibold">ট${plant.price} </span>
@@ -60,7 +69,7 @@ const displayTreeContainer=(plants)=>{
         `
         treeContainer.append(cardDiv)
 
-        console.log(plant)
+        // console.log(plant)
     })
 }
 
@@ -83,10 +92,10 @@ const displayAllTreeContainer = (plants) => {
     plants.forEach(plant => {
         const cardDiv = document.createElement('div')
         cardDiv.innerHTML = `
-                    <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[250px] space-y-2 h-full">
+                    <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[250px] mx-auto space-y-2 h-full">
                     <img class="h-[200px] w-full rounded-sm " src="${plant.image} "  alt="">
                     <h4 class="font-bold mt-[5px]">${plant.name} </h4>
-                    <p class="text-[12px]  ">${plant.description} </p>
+                    <p class="text-[11px] text-justify text-[#404040]  ">${plant.description} </p>
                     <div class="flex justify-between mt-[10px]">
                         <span class="text-[14px] bg-[#DCFCE7] px-[10px] py-[2px] rounded-xl">${plant.category} </span>
                         <span class="text-[14px] font-semibold">ট${plant.price} </span>
