@@ -88,7 +88,8 @@
                 <div><img src="assets/hero-leaf1.png" alt=""></div>
                 <div class="flex flex-col items-center justify-center">
                     <h1 class="text-[28px] font-bold  text-center">Plant a Tree, Grow a Future</h1>
-                    <p class="text-center text-[11px]  text-[#404040]">Join our mission to plant 1 million trees and make the
+                    <p class="text-center text-[11px]  text-[#404040]">Join our mission to plant 1 million trees and
+                        make the
                         Earth greener for future
                         generations.</p>
                     <div class="mt-[24px]">
@@ -108,12 +109,12 @@
     <main class="bg-[#F0FDF4]">
 
         <!-- start tree-container  -->
-        <section class="border-1 border-black w-11/12 mx-auto">
-            <h3 class="mt-[60px] mb-[30px] text-[24px] font-bold text-center">Choose Yours Trees</h3>
+        <section class="w-11/12 mx-auto">
+            <h3 class="pt-[60px] mb-[30px] text-[24px] font-bold text-center">Choose Yours Trees</h3>
             <div class="flex gap-[15px] justify-between">
                 <div class=" w-[180px] mx-auto">
                     <h4 class=" font-bold mb-[10px]">Categories</h4>
-                    <button onclick="loadAllTreeContainer()"
+                    <button onclick="loadAllTreeContainer()" id="all-trees-btn"
                         class="w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[14px] text-left px-[5px] py-[3px] rounded-[3px] active mb-[3px] allCategory-btn ">All
                         Trees</button>
                     <div id="all-category">
@@ -153,16 +154,42 @@
                     <button>Add to Cart</button>
                 </div> -->
                 </div>
-                <div class="bg-white w-[180px] p-[10px] rounded-sm mx-auto">
-                    <h4>Your Cart</h4>
+                <div id="cart" class="bg-white w-[180px] p-[10px] rounded-sm mx-auto">
+                    <div>
+                        <h4 class="font-bold">Your Cart</h4>
+                    </div>
+                    <div id="add-card-item">
+                        <div id="card-item" >
+                            
+                            <!-- cart items will be added here -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Open the modal using ID.showModal() method -->
+        <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+            <div class="modal-box">
+                <h3 class="text-lg font-bold">Hello!</h3>
+                <p class="py-4">Press ESC key or click the button below to close</p>
+                <div class="modal-action">
+                    <form method="dialog">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn">Close</button>
+                    </form>
+                </div>
+            </div>
+        </dialog>
+
+        <a onclick="my_modal_5.showModal()" href=""></a>
+
+
         <!-- start campaign section  -->
         <section class=" mb-[60px] w-8/13 mx-auto">
             <h2 class="mt-[60px] mb-[30px] text-center font-bold text-[24px]">About The Campaign</h2>
-            <div class="flex  mx-auto justify-between border-1 border-black gap-3">
+            <div class="flex  mx-auto justify-between  gap-3">
 
                 <div class="w-1/2">
                     <img src="assets/about.png" alt="">
@@ -207,14 +234,17 @@
         <section class="bg-[#166534] ">
             <div>
                 <div>
-                    <h2 class="text-center mb-[30px] font-bold text-[24px] text-white pt-[60px] ">Plant a Tree Today</h2>
+                    <h2 class="text-center mb-[30px] font-bold text-[24px] text-white pt-[60px] ">Plant a Tree Today
+                    </h2>
                 </div>
                 <div class="  flex items-center justify-center pb-[30px] mx-auto  ">
                     <form class="w-[400px] grid space-y-3 bg-[#15803D] shadow-inherit p-5 rounded-md mb-[60px]">
-                        <input class="rounded-sm h-7 bg-white border-none text-[12px] px-2" type="text" name="name" placeholder="Your name" id="">
-                        <input class="rounded-sm h-7 bg-white border-none text-[12px] px-2" type="email" name="email" placeholder="Your Email Address" id="">
+                        <input class="rounded-sm h-7 bg-white border-none text-[12px] px-2" type="text" name="name"
+                            placeholder="Your name" id="">
+                        <input class="rounded-sm h-7 bg-white border-none text-[12px] px-2" type="email" name="email"
+                            placeholder="Your Email Address" id="">
                         <select class="rounded-sm h-7 bg-white border-none text-[12px] px-2"" name="" id="">
-                            <option value="tea">Number of Trees</option>
+                            <option value=" tea">Number of Trees</option>
                             <option value="bread">Bread</option>
                         </select>
                         <input class="h-7 bg-[#FACC15] border-none  rounded-[50px] shadow-none text-[#15803D] "
