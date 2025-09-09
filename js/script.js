@@ -1,5 +1,15 @@
 console.log("Cocking Green Earth")
 
+// this is for loading spiner
+const showLoading = () => {
+    const treeContainer = document.getElementById("tree-container");
+    treeContainer.innerHTML = `
+        <div class="flex items-center justify-center col-span-full py-10">
+            <div class="w-8 h-8 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+    `;
+};
+
 //  category section 
 const loadCategory = () => {
     fetch('https://openapi.programming-hero.com/api/categories')
@@ -17,7 +27,7 @@ const displayCategory = (categories) => {
 
         const btnDiv = document.createElement('div')
         btnDiv.innerHTML = `
-       <button id="category-btn-${category.id}" onclick=loadTreeContainer(${category.id}) class="sm:w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[14px] text-left px-[5px] py-[3px] rounded-[3px] my-[3px] allCategory-btn ">${category.category_name} </button>
+       <button id="category-btn-${category.id}" onclick=loadTreeContainer(${category.id}) class=" sm:w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[12px] sm:text-[14px] text-left px-[5px] py-[3px] rounded-[3px] active mb-[3px] allCategory-btn">${category.category_name} </button>
         `
         allCategory.append(btnDiv)
 
@@ -40,10 +50,13 @@ const removeActive = () => {
 
 const loadTreeContainer = (id) => {
     const url = `https://openapi.programming-hero.com/api/category/${id}`
+    showLoading()
     fetch(url)
         .then(res => res.json())
         .then(data => {
+            
             removeActive();
+            
             const clickBtn = document.getElementById(`category-btn-${id}`)
             clickBtn.classList.add("active")
             console.log(clickBtn)
@@ -87,10 +100,15 @@ const displayTreeContainer = (plants) => {
 // all tree container 
 
 const loadAllTreeContainer = () => {
+
+    removeActive();
+    showLoading()
     console.log();
     fetch('https://openapi.programming-hero.com/api/plants')
+    
         .then(res => res.json())
         .then(data => {
+            
             removeActive();
             const allBtn = document.getElementById("all-trees-btn");
             allBtn.classList.add("active");

@@ -130,13 +130,21 @@
                         <button onclick="loadAllTreeContainer()" id="all-trees-btn"
                             class=" sm:w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[12px] sm:text-[14px] text-left px-[5px] py-[3px] rounded-[3px] active mb-[3px] allCategory-btn ">All
                             Trees</button>
-                        <div id="all-category" class="flex flex-wrap justify-center sm:flex-none sm:flex-col">
+                        <div id="all-category" class="flex flex-wrap justify-center sm:w-full sm:flex-none sm:flex-col">
 
                         </div>
                     </div>
 
                 </div>
                 <div id="tree-container" class="grid sm:grid-cols-3 gap-4 ">
+                                
+            <!-- Spinner -->
+            <div id="loading-spinner"
+                class=" flex fixed inset-0 items-center justify-center bg-white bg-opacity-70 z-50">
+                <div class="w-8 h-8 border-4 border-green-600 border-t-transparent rounded-full animate-spin"></div>
+            </div>
+
+            <!-- Your existing navbar, categories, cart, etc. -->
                     <!-- <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[250px] space-y-2">
                     <img src="assets/about.png" alt="">
                     <h4 class="font-bold mt-[5px]">Mango Tree</h4>
@@ -166,6 +174,9 @@
                         <span>ট500</span>
                     </div>
                     <button>Add to Cart</button>
+                </div> -->
+                    <!-- <div class="bg-green-600 p-3 flex text-center items-center justify-center">
+                    loading.....
                 </div> -->
                 </div>
                 <div id="cart" class="bg-white w-[180px] p-[10px] rounded-sm mx-auto hidden sm:block">
