@@ -43,19 +43,19 @@
                             </svg>
                         </div>
                         <ul id="" tabindex="0" class="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2  ">
-                            <li><a>Item 1</a></li>
+                            <li><a>About</a></li>
                             <li>
-                                <a>Parent</a>
+                                <a>Gallery</a>
                                 <!-- <ul class="p-2">
                                     <li><a>Submenu 1</a></li>
                                     <li><a>Submenu 2</a></li>
                                 </ul> -->
                             </li>
-                            <li><a>Item 3</a></li>
+                            <li><a>Plant a Tree</a></li>
                         </ul>
                     </div>
                     <i class="fa-solid fa-seedling text-white text-[20px]"></i>
-                    <h1 class="font-semibold text-[20px] text-white">Green Earth</h1>
+                    <h1 class="font-semibold sm:text-[20px] text-white">Green Earth</h1>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul id="menu-style" class="flex gap-[20px] hover:cursor-pointer  px-1 text-white">
@@ -75,7 +75,7 @@
                 </div>
                 <div class="navbar-end">
                     <a
-                        class=" btn bg-[#FACC15] border-none py-[7px] px-[20px] rounded-[50px] shadow-none text-[#15803D]">Plant
+                        class=" bg-[#FACC15] border-none py-[3px] px-[8px] sm:py-[7px] sm:px-[20px] rounded-[50px] shadow-none text-[#15803D] text-[12px] sm:text-[18px]">Plant
                         Tree</a>
                 </div>
             </div>
@@ -85,20 +85,18 @@
 
         <section class="bg-[#CFF0DC]">
             <div class="flex justify-between">
-                <div><img src="assets/hero-leaf1.png" alt=""></div>
+                <div class="flex"><img src="assets/hero-leaf1.png" alt=""></div>
                 <div class="flex flex-col items-center justify-center">
-                    <h1 class="text-[28px] font-bold  text-center">Plant a Tree, Grow a Future</h1>
-                    <p class="text-center text-[11px]  text-[#404040]">Join our mission to plant 1 million trees and
-                        make the
-                        Earth greener for future
-                        generations.</p>
-                    <div class="mt-[24px]">
+                    <h1 class="text-[18px] mt-[10px] sm:text-[28px] font-bold  text-center">Plant a Tree, Grow a Future</h1>
+                    <p class="text-center text-[8px] sm:text-[11px]  text-[#404040]">Join our mission to plant 1 million
+                        trees and make the Earth greener for future generations.</p>
+                    <div class="sm:mt-[24px] mb-[20px] mt-[15px]">
                         <a
-                            class=" btn bg-[#FACC15] border-none py-[12px] px-[20px] rounded-[50px] shadow-none text-[#15803D]">Get
+                            class=" bg-[#FACC15] border-none py-[5px] px-[10px] sm:py-[7px] sm:px-[20px] rounded-[50px] shadow-none text-[#15803D] text-[12px] sm:text-[18px] ">Get
                             Involved</a>
                     </div>
                 </div>
-                <div><img src="assets/hero-leaf2.png" alt=""></div>
+                <div class="flex"><img src="assets/hero-leaf2.png" alt=""></div>
             </div>
         </section>
 
@@ -110,19 +108,21 @@
 
         <!-- start tree-container  -->
         <section class="w-11/12 mx-auto">
-            <h3 class="pt-[60px] mb-[30px] text-[24px] font-bold text-center">Choose Yours Trees</h3>
-            <div class="flex gap-[15px] justify-between">
-                <div class=" w-[180px] mx-auto">
-                    <h4 class=" font-bold mb-[10px]">Categories</h4>
-                    <button onclick="loadAllTreeContainer()" id="all-trees-btn"
-                        class="w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[14px] text-left px-[5px] py-[3px] rounded-[3px] active mb-[3px] allCategory-btn ">All
-                        Trees</button>
-                    <div id="all-category">
+            <h3 class="pt-[30px] sm:pt-[60px] mb-[15px] sm:mb-[30px] sm:text-[24px] font-bold text-center">Choose Yours Trees</h3>
+            <div class="flex flex-col sm:flex-row gap-[15px] justify-between">
+                <div class=" sm:w-[180px] mx-auto">
+                    <h4 class=" font-bold mb-[10px] text-[14px] sm:text-[18px] text-center sm:text-left">Categories</h4>
+                    <div class="flex flex-wrap justify-center sm:flex-none sm:justify-start">
+                        <button onclick="loadAllTreeContainer()" id="all-trees-btn"
+                            class=" sm:w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[12px] sm:text-[14px] text-left px-[5px] py-[3px] rounded-[3px] active mb-[3px] allCategory-btn ">All
+                            Trees</button>
+                        <div id="all-category" class="flex flex-wrap justify-center sm:flex-none sm:flex-col">
 
+                        </div>
                     </div>
 
                 </div>
-                <div id="tree-container" class="grid grid-cols-3 gap-4 ">
+                <div id="tree-container" class="grid sm:grid-cols-3 gap-4 ">
                     <!-- <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[250px] space-y-2">
                     <img src="assets/about.png" alt="">
                     <h4 class="font-bold mt-[5px]">Mango Tree</h4>
@@ -159,8 +159,8 @@
                         <h4 class="font-bold">Your Cart</h4>
                     </div>
                     <div id="add-card-item">
-                        <div id="card-item" >
-                            
+                        <div id="card-item">
+
                             <!-- cart items will be added here -->
                         </div>
                     </div>
@@ -170,10 +170,12 @@
 
         <!-- Open the modal using ID.showModal() method -->
         <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
-        <dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
-            <div class="modal-box">
-                <h3 class="text-lg font-bold">Hello!</h3>
-                <p class="py-4">Press ESC key or click the button below to close</p>
+        <dialog id="plants_modal" class="modal modal-bottom sm:modal-middle">
+            <div id="design-modal" class="modal-box ">
+                <div id="details-container" class="space-y-3">
+                   
+                </div>
+
                 <div class="modal-action">
                     <form method="dialog">
                         <!-- if there is a button in form, it will close the modal -->
@@ -188,17 +190,15 @@
 
         <!-- start campaign section  -->
         <section class=" mb-[60px] w-8/13 mx-auto">
-            <h2 class="mt-[60px] mb-[30px] text-center font-bold text-[24px]">About The Campaign</h2>
-            <div class="flex  mx-auto justify-between  gap-3">
+            <h2 class="mt-[60px] mb-[30px] text-center font-bold  sm:text-[24px]">About The Campaign</h2>
+            <div class="  sm:flex  mx-auto justify-between  gap-3 ">
 
-                <div class="w-1/2">
+                <div class="sm:w-1/2" >
                     <img src="assets/about.png" alt="">
                 </div>
-                <div class=" w-1/2 flex flex-col flex-wrap justify-center">
-                    <p class="text-[11px] text-[#404040] ">
-                        Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since
-                        our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore
-                        forests, create habitats for wildlife, and combat global warming.
+                <div class=" mt-3 sm:w-1/2 flex flex-col flex-wrap justify-center">
+                    <p class="text-[12px] sm:text-[13px] text-[#404040] ">
+                        Green Earth is a global tree plantation initiative dedicated to fighting climate change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our campaign, you help restore forests, create habitats for wildlife, and combat global warming.
                     </p>
                     <ul class="list-disc ml-5 text-[11px] text-[#404040] mt-[10px]">
                         <li>Restoration of natural habitats</li>
@@ -210,18 +210,18 @@
         </section>
 
         <!-- start impact section  -->
-        <section class="bg-[#DCFCE7] py-[60px]">
-            <h2 class="mb-[30px] text-center font-bold text-[24px]">Our Impact </h2>
-            <div class="w-11/12 mx-auto  mt-[30px] flex justify-between">
-                <div class="bg-white w-[350px]  text-center h-[120px] flex flex-col justify-center rounded-md">
+        <section class="bg-[#DCFCE7] py-5 sm:py-[60px]">
+            <h2 class="sm:mb-[30px] text-center font-bold sm:text-[24px]">Our Impact </h2>
+            <div class="w-11/12 mx-auto mt-[15px] sm:mt-[30px] flex justify-between">
+                <div class="bg-white w-[120px] sm:w-[350px]  text-center h-[80px] sm:h-[120px] flex flex-col justify-center rounded-md">
                     <span class="font-semibold text-[20px] text-[#15803D]">500K+</span>
                     <P class="text-[11px] text-[#404040]">Trees Planted</P>
                 </div>
-                <div class="bg-white w-[350px]  text-center h-[120px] flex flex-col justify-center rounded-md ">
+                <div class="bg-white w-[120px] sm:w-[350px]  text-center sm:h-[120px] flex flex-col justify-center rounded-md ">
                     <span class="font-semibold text-[20px] text-[#15803D]">120+</span>
                     <P class="text-[11px] text-[#404040]">Communities Involved</P>
                 </div>
-                <div class="bg-white w-[350px]  text-center h-[120px] flex flex-col justify-center  rounded-md">
+                <div class="bg-white w-[120px] sm:w-[350px]  text-center sm:h-[120px] flex flex-col justify-center  rounded-md">
                     <span class="font-semibold text-[20px] text-[#15803D]">30+</span>
                     <P class="text-[11px] text-[#404040]">Countries Reached</P>
                 </div>
@@ -234,11 +234,11 @@
         <section class="bg-[#166534] ">
             <div>
                 <div>
-                    <h2 class="text-center mb-[30px] font-bold text-[24px] text-white pt-[60px] ">Plant a Tree Today
+                    <h2 class="text-center mb-[30px] font-bold sm:text-[24px] text-white pt-[30px] sm:pt-[60px] ">Plant a Tree Today
                     </h2>
                 </div>
-                <div class="  flex items-center justify-center pb-[30px] mx-auto  ">
-                    <form class="w-[400px] grid space-y-3 bg-[#15803D] shadow-inherit p-5 rounded-md mb-[60px]">
+                <div class="  flex items-center justify-center sm:pb-[30px] mx-auto  ">
+                    <form class="w-[350px] sm:w-[400px] grid space-y-3 bg-[#15803D] shadow-inherit p-5 rounded-md mb-[60px]">
                         <input class="rounded-sm h-7 bg-white border-none text-[12px] px-2" type="text" name="name"
                             placeholder="Your name" id="">
                         <input class="rounded-sm h-7 bg-white border-none text-[12px] px-2" type="email" name="email"

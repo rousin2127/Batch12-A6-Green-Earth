@@ -17,7 +17,7 @@ const displayCategory = (categories) => {
 
         const btnDiv = document.createElement('div')
         btnDiv.innerHTML = `
-       <button id="category-btn-${category.id}" onclick=loadTreeContainer(${category.id}) class="w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[14px] text-left px-[5px] py-[3px] rounded-[3px] my-[3px] allCategory-btn ">${category.category_name} </button>
+       <button id="category-btn-${category.id}" onclick=loadTreeContainer(${category.id}) class="sm:w-full hover:bg-[#DCFCE7] hover:cursor-pointer text-[14px] text-left px-[5px] py-[3px] rounded-[3px] my-[3px] allCategory-btn ">${category.category_name} </button>
         `
         allCategory.append(btnDiv)
 
@@ -60,10 +60,10 @@ const displayTreeContainer = (plants) => {
     plants.forEach(plant => {
         const cardDiv = document.createElement('div')
         cardDiv.innerHTML = `
-        <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[250px] mx-auto space-y-2 h-full">
+        <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[350px] sm:w-[250px] mx-auto space-y-2 h-full">
                     <img class="h-[200px] w-full rounded-sm " src="${plant.image} "  alt="">
-                    <h4 onclick="my_modal_5.showModal()" class="font-bold mt-[5px] hover:cursor-pointer ">${plant.name}</h4>
-                    <p class="text-[11px] text-justify text-[#404040]  ">${plant.description} </p>
+                    <h4 onclick="loadTreeDetail(${plant.id})" class="font-bold mt-[5px] hover:cursor-pointer ">${plant.name}</h4>
+                    <p class="text-[11px] text-justify text-[#404040] overflow-hidden text-ellipsis line-clamp-3 ">${plant.description} </p>
                     <div class="flex justify-between mt-[10px]">
                         <span class="text-[14px] bg-[#DCFCE7] px-[10px] py-[2px] rounded-xl">${plant.category} </span>
                         <span class="text-[14px] font-semibold">ট${plant.price} </span>
@@ -105,10 +105,10 @@ const displayAllTreeContainer = (plants) => {
     plants.forEach(plant => {
         const cardDiv = document.createElement('div')
         cardDiv.innerHTML = `
-                    <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[250px] mx-auto space-y-2 h-full">
+                    <div id="card-tree " class="bg-white p-[10px] rounded-sm w-[350px] sm:w-[250px] mx-auto space-y-2 h-full">
                     <img class="h-[200px] w-full rounded-sm " src="${plant.image} "  alt="">
-                    <h4 class="font-bold mt-[5px]">${plant.name} </h4>
-                    <p class="text-[11px] text-justify text-[#404040]  ">${plant.description} </p>
+                    <h4 onclick="loadTreeDetail(${plant.id})" class="font-bold mt-[5px] hover:cursor-pointer">${plant.name} </h4>
+                    <p class="text-[11px] text-justify text-[#404040] overflow-hidden text-ellipsis line-clamp-3 ">${plant.description} </p>
                     <div class="flex justify-between mt-[10px]">
                         <span class="text-[14px] bg-[#DCFCE7] px-[10px] py-[2px] rounded-xl">${plant.category} </span>
                         <span class="text-[14px] font-semibold">ট${plant.price} </span>
@@ -130,11 +130,39 @@ const displayAllTreeContainer = (plants) => {
 loadAllTreeContainer()
 
 
+// Add Model
+
+const loadTreeDetail=(id)=>{
+    const url=`https://openapi.programming-hero.com/api/plant/${id}`
+
+    fetch(url)
+    .then(res=> res.json())
+    .then(detail=> displayTreeDetail(detail.plants))
+}
+
+const displayTreeDetail=(plants)=>{
+    console.log(plants)
+    const detailsBox=document.getElementById('details-container')
+    detailsBox.innerHTML=`
+     <h3 class="font-bold">${plants.name}</h3>
+                    <div>
+                        <img class="h-[150px] w-full" src="${plants.image}" alt="">
+                    </div>
+                    <div>
+                        <p><strong class="text-[14px]">Category:</strong><span class="text-[12px]">${plants.category}</span></p>
+                        <p><strong class="text-[14px]">Price:</strong><span class="text-[12px]">ট${plants.price}</span></p>
+                        <p><strong class="text-[14px]">Description:</strong><span class="text-[12px]">${plants.description}</p>
+                    </div>
+
+    
+    `
+    
+    document.getElementById("plants_modal").showModal()
+}
 
 
 // item into cart 
 
-// ================= Add to Cart =================
 // const cartContainer = document.getElementById("card-item");
 
 // const addToCart = (plantName, plantPrice) => {
@@ -154,10 +182,10 @@ let cart = [];
 let totalPrice = 0;
 
 const addToCart = (plantName, plantPrice) => {
-    let existing = cart.find(item => item.name === plantName);
+    let existItem = cart.find(item => item.name === plantName);
 
-    if (existing) {
-        existing.quantity += 1;
+    if (existItem) {
+        existItem.quantity += 1;
     } else {
         cart.push({ name: plantName, price: plantPrice, quantity: 1 });
     }
@@ -184,19 +212,19 @@ const updateCart = () => {
         cartItem.className = "flex justify-between items-center bg-green-50 p-2 rounded mb-2";
         cartItem.innerHTML = `
             <div>
-                <p class="font-semibold">${item.name}</p>
-                <p class="text-sm text-gray-600">৳${item.price} x ${item.quantity}</p>
+                <p class="font-semibold text-[14px]">${item.name}</p>
+                <p class="text-[12px] text-gray-600">৳${item.price} x ${item.quantity}</p>
             </div>
-            <button class="text-red-500 font-bold" onclick="removeFromCart('${item.name}')">x</button>
+            <button class="text-red-500 hover:cursor-pointer " onclick="removeFromCart('${item.name}')">x</button>
         `;
         cartContainer.appendChild(cartItem);
     });
 
     const totalDiv = document.createElement("div");
-    totalDiv.className = "flex justify-between font-bold border-t pt-2 mt-2";
+    totalDiv.className = "flex justify-between font-bold border-t border-gray-300 pt-1 mt-2";
     totalDiv.innerHTML = `
-        <span>Total:</span>
-        <span>৳${totalPrice}</span>
+        <span class="text-[12px]">Total:</span>
+        <span class="text-[12px]">৳${totalPrice}</span>
     `;
     cartContainer.appendChild(totalDiv);
 };
