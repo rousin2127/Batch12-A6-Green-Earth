@@ -177,7 +177,8 @@ const displayTreeDetail=(plants)=>{
 //     cartContainer.appendChild(cartItem);
 // };
 
-const cartContainer = document.getElementById("card-item");
+const cartContainerDesktop = document.getElementById("card-item");
+const cartContainerMobile = document.getElementById("mobile-cart-items");
 let cart = [];
 let totalPrice = 0;
 
@@ -198,33 +199,48 @@ const removeFromCart = (plantName) => {
     updateCart();
 };
 
-
 const updateCart = () => {
-    cartContainer.innerHTML = "";
+    cartContainerDesktop.innerHTML = "";
+    cartContainerMobile.innerHTML = "";
     totalPrice = 0;
 
     if (cart.length === 0) {
+        document.getElementById("cart-count").innerText = 0;
         return; 
     }
+
     cart.forEach(item => {
         totalPrice += item.price * item.quantity;
-        const cartItem = document.createElement("div");
-        cartItem.className = "flex justify-between items-center bg-green-50 p-2 rounded mb-2";
-        cartItem.innerHTML = `
-            <div>
-                <p class="font-semibold text-[14px]">${item.name}</p>
-                <p class="text-[12px] text-gray-600">৳${item.price} x ${item.quantity}</p>
+
+        const cartItemHTML = `
+            <div class="flex justify-between items-center bg-green-50 p-2 rounded mb-2">
+                <div>
+                    <p class="font-semibold text-[14px]">${item.name}</p>
+                    <p class="text-[12px] text-gray-600">৳${item.price} x ${item.quantity}</p>
+                </div>
+                <button class="text-red-500 hover:cursor-pointer " onclick="removeFromCart('${item.name}')">x</button>
             </div>
-            <button class="text-red-500 hover:cursor-pointer " onclick="removeFromCart('${item.name}')">x</button>
         `;
-        cartContainer.appendChild(cartItem);
+
+        cartContainerDesktop.innerHTML += cartItemHTML;
+        cartContainerMobile.innerHTML += cartItemHTML;
     });
 
-    const totalDiv = document.createElement("div");
-    totalDiv.className = "flex justify-between font-bold border-t border-gray-300 pt-1 mt-2";
-    totalDiv.innerHTML = `
-        <span class="text-[12px]">Total:</span>
-        <span class="text-[12px]">৳${totalPrice}</span>
+    const totalDiv = `
+        <div class="flex justify-between font-bold border-t border-gray-300 pt-1 mt-2">
+            <span class="text-[12px]">Total:</span>
+            <span class="text-[12px]">৳${totalPrice}</span>
+        </div>
     `;
-    cartContainer.appendChild(totalDiv);
+
+    cartContainerDesktop.innerHTML += totalDiv;
+    cartContainerMobile.innerHTML += totalDiv;
+
+    // Update badge
+    document.getElementById("cart-count").innerText = cart.length;
 };
+
+function toggleCart() {
+    const cart = document.getElementById("mobile-cart");
+    cart.classList.toggle("translate-x-full");
+}
